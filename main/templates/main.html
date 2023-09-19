@@ -1,17 +1,41 @@
-<h1> Welcome to POOL INVENTORY </h1>
-<h2> Cue Collection </h2>
+{% extends 'base.html' %}
 
-<img src="file:///Users/rachel/Downloads/IMG_59A7C38926FB-1-removebg-preview.png"
-    width="800"
-    height="100"/>
+{% block content %}
+    <h1> Welcome to POOL INVENTORY </h1>
+    <h2> Cue Collection </h2>
 
-<h5>Name: </h5>
-<p>Beginner Cue</p>
-<h5>Force: </h5>
-<p>very low </p> 
-<h5>Aim: </h5>
-<p>very low</p> 
-<h5>Spin: </h5>
-<p>very low</p> 
-<h5>Time: </h5>
-<p>very low</p> 
+    <h5>Name:</h5>
+    <p>{{name}}</p>
+
+    <h5>Class:</h5>
+    <p>{{class}}</p>
+
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Description</th>
+        <th>Date Added</th>
+    </tr>
+
+    {% comment %} Berikut cara memperlihatkan data produk di bawah baris ini {% endcomment %}
+
+    {% for product in products %}
+        <tr>
+            <td>{{product.name}}</td>
+            <td>{{product.price}}</td>
+            <td>{{product.description}}</td>
+            <td>{{product.date_added}}</td>
+        </tr>
+    {% endfor %}
+</table>
+
+<br />
+
+<a href="{% url 'main:create_product' %}">
+    <button>
+        Add New Product
+    </button>
+</a>
+
+{% endblock content %}
