@@ -8,11 +8,14 @@ from django.core import serializers
 
 def show_main(request):
     products = Product.objects.all()
+    product_count = Product.objects.count()
     
     context = {
+        'app_name': 'Rachel\'s Cue Collection',
         'name': 'Rachel Heningtyas Zanetta Erari',
         'class': 'PBP C',
-        'products': products
+        'products': products,
+        'product_count': product_count
     }
 
     return render(request, 'main.html', context)
@@ -23,7 +26,7 @@ def create_product(request):
     if form.is_valid() and request.method == "POST":
         form.save()
         return HttpResponseRedirect(reverse('main:show_main'))
-
+    
     context = {'form': form}
     return render(request, "create_product.html", context)
 

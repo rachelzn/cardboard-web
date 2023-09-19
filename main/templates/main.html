@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1> Welcome to POOL INVENTORY </h1>
+    <h1> {{app_name}} </h1>
     <h2> Cue Collection </h2>
 
     <h5>Name:</h5>
@@ -9,6 +9,8 @@
 
     <h5>Class:</h5>
     <p>{{class}}</p>
+
+    <p style="color: rgb(220, 121, 137);">You have saved {{ product_count }} items in this application.</p>
 
 <table>
     <tr>
