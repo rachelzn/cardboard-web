@@ -1,43 +1,90 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1> {{app_name}} </h1>
-    <h2> Cue Collection </h2>
+<style>
+    /* Style the background for h1 and h2 elements */
+    h1, h2 {
+        background-color: rgb(176, 69, 114);
+        padding: 10px; 
+        margin: 0;
+    }
+
+    table {
+        width: 100%; 
+        border-collapse: collapse;
+    }
+
+    th, td {
+        border: 1px solid #ddd;
+        padding: 8px; 
+        text-align: left;
+    }
+
+    tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+    th {
+        background-color: #333;
+        color: white;
+    }
+
+    td {
+        color: grey;
+    }
+
+    .custom-button {
+            background-color: rgb(164, 89, 123); 
+            color: white; 
+            padding: 10px 20px; 
+            border: none; 
+            border-radius: 5px; 
+            cursor: pointer; 
+        }
+
+        .custom-button:hover {
+            background-color: grey; 
+        }
+</style> 
+
+<div style="text-align: center;">
+    <h1>{{ app_name }}</h1>
+    <h2>Cue Collection by Rachel Heningtyas Zanetta Erari</h2>
 
     <h5>Name:</h5>
-    <p>{{name}}</p>
+    <p>{{ name }}</p>
 
     <h5>Class:</h5>
-    <p>{{class}}</p>
+    <p>{{ class }}</p>
 
-    <p style="color: rgb(220, 121, 137);">You have saved {{ product_count }} items in this application.</p>
+    <p style="color: rgb(220, 121, 137);">You have saved {{ product_count }} product(s) in this application.</p>
 
-<table>
-    <tr>
-        <th>Name</th>
-        <th>Price</th>
-        <th>Description</th>
-        <th>Date Added</th>
-    </tr>
-
-    {% comment %} Berikut cara memperlihatkan data produk di bawah baris ini {% endcomment %}
-
-    {% for product in products %}
+    <table style="margin: 0 auto;">
         <tr>
-            <td>{{product.name}}</td>
-            <td>{{product.price}}</td>
-            <td>{{product.description}}</td>
-            <td>{{product.date_added}}</td>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Description</th>
+            <th>Date Added</th>
         </tr>
-    {% endfor %}
-</table>
 
-<br />
+        {% comment %} Berikut cara memperlihatkan data produk di bawah baris ini {% endcomment %}
 
-<a href="{% url 'main:create_product' %}">
-    <button>
-        Add New Product
-    </button>
-</a>
+        {% for product in products %}
+            <tr>
+                <td >{{ product.name }}</td>
+                <td>{{ product.price }}</td>
+                <td>{{ product.description }}</td>
+                <td>{{ product.date_added }}</td>
+            </tr>
+        {% endfor %}
+    </table>
 
+    <br />
+
+    <a href="{% url 'main:create_product' %}">
+        <button class="custom-button">
+            Add New Product
+        </button>
+    </a>
+</div>
 {% endblock content %}
