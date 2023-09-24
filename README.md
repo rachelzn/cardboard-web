@@ -214,7 +214,7 @@ urlpatterns = [
 Dua path pertama berfungsi untuk menampilkan seluruh data pada database dalam format XML atau JSON, yang menggunakan fungsi show_xml dan show_json dari views. Dua path terakhir berfungsi untuk menampilkan data berdasarkan id yang di-input pada path dalam format XML atau JSON menggunakan fungsi show_xml_by_id dan fungsi show_json_by_id. Misalnya, untuk melihat data dengan id 1 dalam bentuk JSON, maka kita dapat membuka url http://localhost:8000/json/1, dan seterusnya.
 </details>
 
-### Apa perbedaan antara form POST dan form GET dalam Django?
+### 2. Apa perbedaan antara form POST dan form GET dalam Django?
 |kriteria           | POST                                                    | GET                                               |
 |-------------------| --------------------------------------------------------| --------------------------------------------------|
 |delivery           | Data dikirimkan secara background                       | Data dikirimkan melalui URL                       |
@@ -223,10 +223,10 @@ Dua path pertama berfungsi untuk menampilkan seluruh data pada database dalam fo
 |batasan data length|Tidak ada batasan data length                            | Terbatas oleh URL length, memiliki batasan        |
 |general use        |Formulir autentikasi, pengiriman data sensitif           | Permintaan pencarian, tautan, data non-sensitif   |
 
-### Apa perbedaan utama antara XML, JSON, dan HTML dalam konteks pengiriman data?
+### 3. Apa perbedaan utama antara XML, JSON, dan HTML dalam konteks pengiriman data?
 HTML digunakan untuk menampilkan data yang telah diproses dan berfokus pada tampilan dan presentasi konten. XML adalah bahasa markup dengan data yang terstruktur seperti pohon dari root, branch, hingga leaves, dan menggunakan tag. JSON digunakan untuk menyimpan dan mengirimkan data dengan menggunakan pasangan key-value. XML dan JSON keduanya sama-sama digunakan untuk menyimpan atau mengirimkan data, sedangkan HTML digunakan untuk menampilkan data yang telah diproses dan menekankan tampilan dan presentasi konten.
 
-### Mengapa JSON sering digunakan dalam pertukaran data antara aplikasi web modern?
+### 4. Mengapa JSON sering digunakan dalam pertukaran data antara aplikasi web modern?
 JSON menyediakan kesederhanaan dan readability, baik bagi manusia maupun mesin. Strukturnya terdiri dari pasangan key-value dan array, sehingga lebih mudah dibaca (parse) dan ditulis ke file JSON. Kelebihan ini membuat JSON cocok untuk berbagai bahasa pemrograman dan sangat sesuai untuk aplikasi web, terutama yang menggunakan JavaScript.
 
 ### Mengakses URL melalui Postman
