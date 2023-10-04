@@ -294,21 +294,106 @@ Cookies bisa menjadi aman jika kita mematuhi pedoman yang telah ditetapkan, sepe
 
 ### 1.  Langkah-Langkah Implementasi Tugas 5
 <details>
-<summary>null</summary>
+<summary>Membuat Navbar</summary>
+Berikut adalah code yang saya tambahkan dalam main.html untuk membuat navbar:
+```
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="navbar-text text-danger ml-auto">
+        Welcome, {{ name }}
+    </div>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'main:logout' %}">Logout</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+```
+Pada navbar tersebut, terdapat welcome message dan tombol logout.
 </details>
 
 <details>
-<summary>null</summary>
-</details>
+<summary>Mengimplementasikan fungsi Edit dan Delete</summary>
+Saya menambahkan fungsi `delete_product` ke dalam `views.py`:
 
-<details>
-<summary>null</summary>
-</details>
+    ```
+    def edit_product(request, id):
+        # Get product berdasarkan ID
+        product = Product.objects.get(pk = id)
 
-<details>
-<summary>null</summary>
-</details>
+        # Set product sebagai instance dari form
+        form = ProductForm(request.POST or None, instance=product)
 
+        if form.is_valid() and request.method == "POST":
+            # Simpan form dan kembali ke halaman awal
+            form.save()
+            return HttpResponseRedirect(reverse('main:show_main'))
+
+        context = {'form': form}
+        return render(request, "edit_product.html", context)
+    ```
+dan juga fungsi `delete_product`:
+```
+def delete_product(request, id):
+    product = Product.objects.get(pk = id)
+    product.delete()
+    return HttpResponseRedirect(reverse('main:show_main'))
+```
+
+Kemudian, saya membuat berkas HTML baru bernama edit_product.html pada main/templates:
+```
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<h1>Edit Product</h1>
+
+<form method="POST">
+    {% csrf_token %}
+    <table>
+        {{ form.as_table }}
+        <tr>
+            <td></td>
+            <td>
+                <input type="submit" value="Edit Product"/>
+            </td>
+        </tr>
+    </table>
+</form>
+
+{% endblock %}
+```
+Setelah itu mengimport fungsi yang telah dibuat ke dalam `urls.py`:
+```
+from main.views import edit_product, delete_product,
+```
+dan menambahkan path url ke dalam utlpatters:
+```
+...
+path('edit-product/<int:id>', edit_product, name='edit_product'),
+path('delete/<int:id>', delete_product, name='delete_product'),
+...
+```
+Terakhir, saya menambahkan button Edit dan Delete pada setiap baris tabel:
+```
+...
+<td>
+     <a href="{% url 'main:edit_product' product.pk %}" class="btn btn-primary btn-sm">
+        Edit
+     </a>
+    <a href="{% url 'main:delete_product' product.pk %}" class="btn btn-danger btn-sm">
+        Delete
+    </a>
+</td>
+...
+```
+</details>
 
 ### 2. Jelaskan manfaat dari setiap element selector dan kapan waktu yang tepat untuk menggunakannya.
 Element selector digunakan untuk memilih dan menerapkan serangkaian style pada semua elemen dengan jenis tag HTML tertentu, seperti h1, h2, p, a, dan lainnya. Sejauh ini ada tiga jenis selector CSS yang telah dipelajari yaitu element selector, ID selector, dan class selector. Element selector digunakan untuk memilih elemen-elemen pada page yang memiliki tag HTML yang sama. Selector ID digunakan untuk mengidentifikasi elemen pada sebuah webpage dengan menggunakan ID uniknya. Class selector digunakan untuk memilih elemen-elemen yang memiliki atribut class tertentu. Ketika kita menggunakan element selector, style yang dipilih akan diterapkan pada setiap contoh dari jenis elemen tersebut di seluruh bagian webpage. Hal ini menjaga konsistensi tampilan elemen-elemen tersebut di seluruh webpage.
