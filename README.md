@@ -79,9 +79,9 @@ Kemudian saya memodifikasi file main.html sebagai sebagai berikut:
     <p>{{ class }}</p>
 ``
 </details>
-<detail>
+<details>
 <summary>Membuat routing di urls.py untuk menghubungkan fungsi di views.py ke URL</summary>
-    Saya menambahkan kode berikut ke dalam file urls.py di dalam aplikasi 'main':
+Saya menambahkan kode berikut ke dalam file urls.py di dalam aplikasi 'main':
     ```
     from django.urls import path
     from main.views import show_main
@@ -91,11 +91,11 @@ Kemudian saya memodifikasi file main.html sebagai sebagai berikut:
     path('', show_main, name='show_main'),
     ]
     ```
-    Selanjutnya, saya mendefinisikan pola URL di dalam file urls.py di dalam direktori proyek 'pool_inventory' menggunakan path() seperti berikut:
-     ```
+Selanjutnya, saya mendefinisikan pola URL di dalam file urls.py di dalam direktori proyek 'pool_inventory' menggunakan path() seperti berikut:
+     
+    ```
      path('main/', include('main.urls')),
-
-     ``
+    ```
 </details>
 <details>
 <summary>Deploy aplikasi ke Adaptable</summary>
@@ -254,19 +254,19 @@ JSON menyediakan kesederhanaan dan readability, baik bagi manusia maupun mesin. 
 ### 1.  Langkah-Langkah Implementasi Tugas 4
 <details>
 <summary>Mengimplementasikan fungsi registrasi</summary>
-<d/details>
+</details>
 
 <details>
 <summary>Mengimplementasikan fungsi login</summary>
-<d/details>
+</details>
 
 <details>
 <summary>Mengimplementasikan fungsi logout</summary>
-<d/details>
+</details>
 
 <details>
 <summary>Menampilkan logged-in user dan menerapkan cookies</summary>
-<d/details>
+</details>
 
 ### 2. Apa itu Django UserCreationForm, dan jelaskan apa kelebihan dan kekurangannya?
 UserCreationForm adalah sebuah class dari Django yang digunakan untuk membuat formulir registrasi pengguna. Formulir ini umumnya terdiri dari tiga field: username, password1, dan password2 (untuk konfirmasi). UserCreationForm memiliki beberapa kelebihan dan kekurangan.
@@ -290,4 +290,61 @@ Dalam konteks Django, cookies digunakan untuk mengelola data sesi pengguna. Keti
 ### 5. Apakah penggunaan cookies aman secara default dalam pengembangan web, atau apakah ada risiko potensial yang harus diwaspadai?
 Cookies bisa menjadi aman jika kita mematuhi pedoman yang telah ditetapkan, seperti menjaga kerahasiaan data dan menggunakan koneksi yang terjamin. Data yang berharga dalam cookies harus disembunyikan atau dienkripsi demi keamanan, dan situs web harus menggunakan koneksi yang aman dengan protokol HTTPS. Tetapi, cookies juga memiliki potensi untuk terjadi data leak atau bahkan disalahgunakan oleh pihak yang tidak bertanggung jawab. Oleh karena itu, ketika menggunakan cookies dalam situs web, penting untuk selalu mematuhi standar keamanan dan memperhatikan privasi.
 
-   
+## Tugas 5
+
+### 1.  Langkah-Langkah Implementasi Tugas 5
+<details>
+<summary>null</summary>
+</details>
+
+<details>
+<summary>null</summary>
+</details>
+
+<details>
+<summary>null</summary>
+</details>
+
+<details>
+<summary>null</summary>
+</details>
+
+
+### 2. Jelaskan manfaat dari setiap element selector dan kapan waktu yang tepat untuk menggunakannya.
+Element selector digunakan untuk memilih dan menerapkan serangkaian style pada semua elemen dengan jenis tag HTML tertentu, seperti h1, h2, p, a, dan lainnya. Sejauh ini ada tiga jenis selector CSS yang telah dipelajari yaitu element selector, ID selector, dan class selector. Element selector digunakan untuk memilih elemen-elemen pada page yang memiliki tag HTML yang sama. Selector ID digunakan untuk mengidentifikasi elemen pada sebuah webpage dengan menggunakan ID uniknya. Class selector digunakan untuk memilih elemen-elemen yang memiliki atribut class tertentu. Ketika kita menggunakan element selector, style yang dipilih akan diterapkan pada setiap contoh dari jenis elemen tersebut di seluruh bagian webpage. Hal ini menjaga konsistensi tampilan elemen-elemen tersebut di seluruh webpage.
+
+### 3. Jelaskan HTML5 Tag yang kamu ketahui.
+`<header>` digunakan untuk mendefinisikan bagian atas atau header dari sebuah dokumen HTML. Tag ini biasanya berisi elemen-elemen seperti judul, logo, menu navigasi, dan elemen-elemen lain yang biasanya muncul di bagian atas webpage.
+
+`<nav>` digunakan untuk mengelompokkan elemen-elemen yang berfungsi sebagai menu navigasi. Tag ini dapat berisi tautan-tautan menu atau pilihan navigasi lainnya yang membantu pengguna berpindah-pindah halaman atau bagian dalam website.
+
+`<a>` adalah tag untuk membuat tautan (link) dalam dokumen HTML. Tag ini digunakan dengan atribut `href` untuk menentukan URL ke halaman atau sumber daya lain yang ingin Anda tautkan.
+
+`<p>` digunakan untuk menandai sebuah paragraf dalam dokumen. Tag ini digunakan untuk mengelompokkan teks menjadi paragraf dan biasanya diakhiri oleh line break.
+
+`<button>` digunakan untuk membuat tombol yang dapat di klik oleh pengguna. Tag ini sering digunakan dalam formulir atau untuk men-trigger JavaScript action ketika tombol tersebut ditekan.
+
+`<div>` digunakan untuk membuat container atau wadah yang dapat digunakan untuk mengelompokkan dan mengatur elemen-elemen lain dalam dokumen HTML. Tag ini sering digunakan untuk tujuan styling dan layout.
+
+`<article>` digunakan untuk menandai konten yang self-contained, seperti artikel berita atau blog. Tag ini membantu search engine dan screen-reader memahami bahwa konten tersebut adalah entitas independen dalam dokumen.
+
+`<br>` digunakan untuk membuat line break. Tag ini digunakan ketika ingin mengakhiri baris teks dan mulai baris baru tanpa membuat paragraf baru.
+
+`<hr>` digunakan untuk membuat garis horizontal yang memisahkan konten dalam dokumen. Ini sering digunakan untuk memisahkan bagian-bagian yang berbeda atau untuk visual.
+
+### 4. Perbedaan Margin vs. Padding
+`Margin` mengacu pada ruang di sekitar elemen, sedangkan `padding` mengacu pada ruang antara elemen dan konten di dalamnya.
+
+### 5. Perbedaan Tailwind vs. Bootstrap. Kapan sebaiknya kita menggunakan Bootstrap daripada Tailwind, dan sebaliknya?
+`Tailwind`:
+- Ideal untuk developer yang ingin menciptakan tampilan yang benar-benar unik dan custom. 
+- Tidak memiliki desain bawaan atau komponen, sehingga kita perlu menentukan setiap gaya dan komponennya secara eksplisit dalam kode CSS.
+- Menawarkan fleksibilitas yang tinggi dalam desain karena kita dapat mengkustomisasi setiap elemen secara detail.
+
+`Bootstrap`:
+- Ideal untuk developer yang ingin menghemat waktu dengan menggunakan desain dan komponen yang sudah jadi.
+- Tersedia berbagai desain bawaan dan komponen siap pakai seperti tombol, formulir, navbar, dan banyak lagi.
+- Memungkinkan developer untuk membangun website dengan cepat dengan tampilan yang konsisten.
+
+Jika kita ingin membuat tampilan web yang sangat customized dan tidak terikat pada desain yang sudah ada, Tailwind mungkin merupakan pilihan yang tepat. Di sisi lain, jika kita ingin menghemat waktu dengan menggunakan desain yang siap pakai serta tampilan yang lebih konsisten, Bootstrap menjadi pilihan yang lebih baik.
+
