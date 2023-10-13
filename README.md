@@ -403,7 +403,7 @@ Element selector digunakan untuk memilih dan menerapkan serangkaian style pada s
 
 `<nav>` digunakan untuk mengelompokkan elemen-elemen yang berfungsi sebagai menu navigasi. Tag ini dapat berisi tautan-tautan menu atau pilihan navigasi lainnya yang membantu pengguna berpindah-pindah halaman atau bagian dalam website.
 
-`<a>` adalah tag untuk membuat tautan (link) dalam dokumen HTML. Tag ini digunakan dengan atribut `href` untuk menentukan URL ke halaman atau sumber daya lain yang ingin Anda tautkan.
+`<a>` adalah tag untuk membuat tautan (link) dalam dokumen HTML. Tag ini digunakan dengan atribut `href` untuk menentukan URL ke halaman atau sumber daya lain yang ingin kita tautkan.
 
 `<p>` digunakan untuk menandai sebuah paragraf dalam dokumen. Tag ini digunakan untuk mengelompokkan teks menjadi paragraf dan biasanya diakhiri oleh line break.
 
@@ -432,4 +432,44 @@ Element selector digunakan untuk memilih dan menerapkan serangkaian style pada s
 - Memungkinkan developer untuk membangun website dengan cepat dengan tampilan yang konsisten.
 
 Jika kita ingin membuat tampilan web yang sangat customized dan tidak terikat pada desain yang sudah ada, Tailwind mungkin merupakan pilihan yang tepat. Di sisi lain, jika kita ingin menghemat waktu dengan menggunakan desain yang siap pakai serta tampilan yang lebih konsisten, Bootstrap menjadi pilihan yang lebih baik.
+
+## Tugas 6
+### 1. Langkah-Langkah Implementasi Tugas 6
+<details>
+<summary>Mengimplementasikan fungsi get_product_json dan add_product_ajax</summary>
+</details>
+
+### 2. Jelaskan perbedaan antara asynchronous programming dengan synchronous programming.
+Asynchronous programming memungkinkan beberapa tugas berjalan bersamaan, sementara synchronous programming menangani tugas secara berurutan. Dalam asynchronous, program dapat melanjutkan tugas lain saat menunggu, sementara synchronous harus menunggu tugas selesai sebelum melanjutkan. Ini membuat asynchronous lebih efisien dan responsif dalam situasi yang melibatkan tugas berkepanjangan.
+
+### 3. Dalam penerapan JavaScript dan AJAX, terdapat penerapan paradigma event-driven programming. Jelaskan maksud dari paradigma tersebut dan sebutkan salah satu contoh penerapannya pada tugas ini.
+Paradigma event-driven programming adalah cara pemrograman di mana program merespons peristiwa atau event yang terjadi, seperti klik tombol, input pengguna, atau permintaan jaringan. Program menentukan tindakan atau fungsi yang akan dijalankan ketika suatu event terjadi.
+
+Contoh penerapannya pada tugas ini adalah ketika pengguna mengklik tombol "Add Product by AJAX" pada halaman web. Ketika tombol ini ditekan, sebuah event terjadi. JavaScript di dalam halaman web membuat sebuah XMLHttpRequest object dan mengirimkan permintaan jaringan ke server. Server kemudian memproses permintaan tersebut dan mengembalikan respons.
+
+Setelah respons diterima, JavaScript di dalam halaman web membaca respons tersebut dan menjalankan tindakan selanjutnya, seperti memperbarui data di halaman tanpa harus merefresh seluruh halaman. Dengan demikian, penggunaan paradigma event-driven programming melalui AJAX memungkinkan website tetap responsif, mengupdate konten secara dinamis, dan memberikan pengalaman pengguna yang lebih baik tanpa perlu merefresh manual.
+
+### 4. Jelaskan penerapan asynchronous programming pada AJAX.
+Penerapan asynchronous programming pada AJAX memungkinkan program komputer untuk menangani beberapa pekerjaan secara bersamaan daripada secara berurutan. Dalam konteks AJAX, asynchronous programming memungkinkan respon yang lebih cepat dan lebih responsif pada halaman web. Prosesnya sebagai berikut:
+
+1. Ketika sesuatu terjadi pada halaman web, misalnya, seseorang mengklik sebuah tombol atau mengirimkan formulir, JavaScript dapat mengambil tindakan.
+2. JavaScript dapat membuat sebuah XMLHttpRequest object atau menggunakan fetch API. Objek XMLHttpRequest ini berperan sebagai pengirim pesan yang meminta sesuatu kepada server web.
+3. Server web menerima permintaan ini, memprosesnya, dan mengirimkan respons kembali ke browser web.
+4. JavaScript di dalam halaman web membaca respons ini dan mengambil tindakan sesuai dengan event yang memicu semuanya.
+5. Tindakan yang diambil oleh JavaScript bergantung pada kode yang telah diatur sebelumnya.
+
+### 5. Fetch API vs jQuery Lib
+
+### Fetch API
+   - Fetch API adalah bagian bawaan dari peramban web modern, yang ringan dan sederhana, sehingga menjadi pilihan yang baik untuk pengembangan web saat ini.
+   - Fetch API mengikuti pendekatan promise, yang membantu menghindari "callback hell" dan membuat kode lebih mudah dibaca.
+   - Fetch API cukup sederhana dan sesuai dengan pengembangan web modern, sehingga menjadi pilihan yang baik untuk sebagian besar proyek baru.
+
+### jQuery
+   - jQuery adalah library yang sedikit lebih tua dan kurang sejalan dengan perkembangan terbaru dalam pengembangan web, meskipun tetap fleksibel dan mudah digunakan, terutama untuk pemula.
+   - jQuery menggunakan pendekatan berbasis callback, di mana kita mendefinisikan fungsi callback untuk menangani tindakan setelah permintaan selesai.
+   - jQuery mungkin lebih relevan jika kita perlu melakukan banyak manipulasi DOM dan animasi dalam proyek.
+
+Menurut saya, Fetch API adalah pilihan yang lebih relevan. Fetch API lebih sederhana, sesuai dengan pengembangan web modern, dan dapat membantu menghindari callback hell. Namun, jQuery masih dapat bermanfaat, terutama saat mendukung peramban web yang lebih lama atau jika proyek kita memiliki banyak kebutuhan untuk manipulasi DOM dan animasi. Dalam pengembangan web saat ini, Fetch API lebih cocok.
+
 
