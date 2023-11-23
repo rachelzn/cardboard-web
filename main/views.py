@@ -1,6 +1,6 @@
 import datetime
 from django.shortcuts import render
-from django.http import HttpResponseNotFound, HttpResponseRedirect
+from django.http import HttpResponseNotFound, HttpResponseRedirect, JsonResponse
 from main.forms import ProductForm
 from django.urls import reverse
 from main.models import Product
@@ -18,12 +18,11 @@ from django.views.decorators.csrf import csrf_exempt
 
 def show_main(request):
     products = Product.objects.filter(user=request.user)
-    product_count = Product.objects.count()
+    product_count = products.count()
     
     context = {
-        'app_name': 'Rachel\'s Cue Collection',
+        'app_name': 'Cardboard',
         'name': request.user.username,
-        'class': 'PBP C',
         'products': products,
         'product_count': product_count,
         'last_login': request.COOKIES['last_login'],
@@ -60,6 +59,7 @@ def delete_product(request, id):
     product.delete()
     return HttpResponseRedirect(reverse('main:show_main'))
 
+
 @csrf_exempt
 def add_product_ajax(request):
     if request.method == 'POST':
@@ -76,8 +76,9 @@ def add_product_ajax(request):
     return HttpResponseNotFound()
 
 def get_product_json(request):
-    product_item = Product.objects.all()
-    return HttpResponse(serializers.serialize('json', product_item))
+    products = Product.objects.filter(user=request.user)
+    data = serializers.serialize('json', products)
+    return JsonResponse(data, safe=False)
 
 def register(request):
     form = UserCreationForm()
