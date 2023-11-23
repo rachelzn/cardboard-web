@@ -1,4 +1,4 @@
-# Rachel's Pool Cue Inventory
+# Cardboard
 Inventory App for Platform-Based Programming 2023/2024 Assignment. Managed by Rachel Heningtyas Zanetta Erari - 2206081944.
 
 ## Tugas 2
