@@ -99,6 +99,17 @@ def create_product_flutter(request):
         return JsonResponse({"status": "success"}, status=200)
     else:
         return JsonResponse({"status": "error"}, status=401)
+    
+@csrf_exempt
+def get_user_product_json(request):
+    user = request.user
+    if user.is_authenticated:
+        data = Product.objects.filter(user=user)
+    else:   
+        # Handle the case when the user is not authenticated
+        data = []
+    
+    return HttpResponse(serializers.serialize("json", data), content_type="application/json")
 
 def register(request):
     form = UserCreationForm()

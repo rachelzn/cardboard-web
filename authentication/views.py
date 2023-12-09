@@ -5,6 +5,8 @@ from django.contrib import messages
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.models import User
+from django.contrib.auth.hashers import make_password
 
 # Create your views here.
 
@@ -52,40 +54,20 @@ def logout(request):
         }, status=401)
     
 @csrf_exempt
-def register(request):
-    if request.method == "POST":
-        data = json.loads(request.body)
-        form = UserCreationForm({"username": data['username'], "password1": data['password1'], "password2": data['password2']})
-        if form.is_valid():
-            form.save()
-            return JsonResponse({
-                "status": True,
-                "message": "Registration sucessful!"
-            }, status=200)
-        else:
-            test = messages.get_messages(request)
-
-            return JsonResponse({
-                "status": False,
-                "message": "Registration failed. Please check the provided information.",
-            }, status=401)
-
-'''
-@csrf_exempt
-def register(request):
+def register_flutter(request):
     if request.method == 'POST':
-        form = UserCreationForm(request.POST)
-        if form.is_valid():
-            user = form.save()
-            auth_login(request, user)
-            return JsonResponse({
-                "username": user.username,
-                "status": True,
-                "message": "Registration successful!",
-            }, status=200)
-        else:
-            return JsonResponse({
-                "status": False,
-                "message": "Registration failed. Please check the provided information.",
-            }, status=400)
-'''
+        try:
+            data = request.POST
+            username = data.get('username')
+            password = data.get('password')
+            if not username or not password:
+                return JsonResponse({'message': 'Username and password are required.'}, status=400)
+            
+            # Additional validation checks can be added here (e.g., password strength, existing user check)
+            
+            user = User.objects.create(username=username, password=make_password(password))
+            return JsonResponse({'message': 'User registered successfully.'}, status=201)
+        except Exception as e:
+            return JsonResponse({'message': str(e)}, status=500)
+    else:
+        return JsonResponse({'message': 'Invalid request method.'}, status=405)
